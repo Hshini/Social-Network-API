@@ -5,7 +5,7 @@
  react to friends’ thoughts, and create a friend list.
 ## Installation 
 This app require <br>
- [Express.js](https://www.npmjs.com/package/express)
+ [Express.js](https://www.npmjs.com/package/express)<br>
  [Mongoose](https://www.npmjs.com/package/mongoose)
 ## Usage 
 Clone the  repo in your pc.
