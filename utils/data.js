@@ -1,13 +1,18 @@
 const users = [
-    'Aaran',
-    'Aaren',
-    'Aarez',
-    'Aarman',
-    'Aaron',
-    'Aaron-James',
-    'Aarron',
-    'Aaryan',
-    'Aaryn',
-    'Aayan',
-    'Aazaan',
+    {
+      username:"Aaran",
+     
+      email:"aaran@yahoo.com"
+    },
+ 
   ];
+
+  const thoughts =[
+    {
+      username:"aran1",
+      thoughtText:"dasdasdas"
+
+    },
+    
+  ]
+  module.exports = { users, thoughts };
