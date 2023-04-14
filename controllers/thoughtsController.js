@@ -38,14 +38,20 @@ module.exports = {
     },
     //create a reaction
     createReaction(req, res) {
-        Thought.create({ _id: req.params.reactionId })
+        Thought.findOneAndUpdate({ _id: req.params.reactionId },
+            { $addToSet: { reactions: req.params.reactionId }, },
+            { new: true }
+            )
             .then((answer) => res.json(answer))
             .catch((err) => res.status(500).json(err));
     },
 
     //remove  reaction
     removeReaction(req, res) {
-        Thought.findOneAndDelete({ _id: req.params.reactionId })
+        Thought.findOneAndDelete({ _id: req.params.reactionId },
+            { $addToSet: { reactions: req.params.reactionId } },
+            { new: true }
+            )
             .then((answer) => res.json(answer))
             .catch((err) => res.status(500).json(err))
     },

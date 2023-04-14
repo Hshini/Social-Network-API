@@ -7,7 +7,6 @@ module.exports = {
   },
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
-      .select('-__v')
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
@@ -37,14 +36,23 @@ module.exports = {
   },
     //Create Friend
   addFriend(req, res) {
-    User.create({_id:req.params.userId})
+      User.findOneAndUpdate(
+        
+        { _id: req.params.userId },
+        { $addToSet: { friends: req.params.friendId } },
+        { new: true }
+        
+      )
       .then((answer) => res.json(answer))
       .catch((err) => res.status(500).json(err));
   },
 
   //remove Friend
   removeFriend(req,res){
-    User.findOneAndDelete({_id:req.params.userId})
+    User.findOneAndDelete({_id:req.params.userId},
+      { $addToSet: { friends: req.params.friendId } },
+      { new: true }
+    )
     .then((answer)=>res.json(answer))
     .catch((err)=> res.status(500).json(err))
   },
