@@ -14,14 +14,14 @@ const thoughtSchema = new Schema(
     createdAt: {
       type:Date,
       default:Date.now,
-      get: (timestamp) => dateFormat(timestamp),
+      // get: (timestamp) => dateFormat(timestamp),
     },
     username: {
       type: String,
       required: true,
      
     },
-    reactions: [reactionSchema]
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
@@ -30,6 +30,11 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
+
+thoughtSchema.virtual("formatDate").get(function () {
+	const date = new Date(this.createdAt);
+	return date.toLocaleString();
+});
 
 thoughtSchema
   .virtual('reactionCount')
