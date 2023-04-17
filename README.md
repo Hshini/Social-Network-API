@@ -10,7 +10,7 @@ This app require <br>
 ## Usage 
 Clone the  repo in your pc.
 
-[Video-Guide](https://watch.)<br>
+[Video-Guide](https://watch.screencastify.com/v/yBzon95zyCw4pzazWOzO)<br>
 
 ## License
 MIT
